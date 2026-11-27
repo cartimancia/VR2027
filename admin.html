@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Admin · Vera &amp; Ricardo</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%233B4530'/%3E%3Ctext x='32' y='43' text-anchor='middle' font-family='Georgia,serif' font-style='italic' font-size='30' fill='%23FBF6EA'%3EV%26R%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..600;1,6..96,400..600&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  color-scheme:light;
+  --paper:#F4EDDD;--paper-2:#E9DEC4;--tile:#FBF6EA;--ink:#2B2A21;--muted:#6E6650;
+  --accent:#A4552F;--accent-deep:#86421F;--cypress:#3B4530;--ochre:#C79A4A;--wheat:#EAD7A4;--line:#DACCAD;
+  --yes:#4F6B3A;--no:#A4552F;
+  --display:"Bodoni Moda",Didot,Georgia,serif;--sans:"Manrope",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:.95rem;line-height:1.55}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.wrap{max-width:68rem;margin:0 auto;padding:0 1.25rem}
+header{background:var(--cypress);color:var(--tile)}
+header .wrap{display:flex;align-items:center;gap:1rem;height:3.75rem}
+header b{font-family:var(--display);font-style:italic;font-weight:400;font-size:1.4rem}
+header span{font-size:.75rem;letter-spacing:.18em;text-transform:uppercase;color:var(--wheat)}
+header button{margin-left:auto}
+h1,h2{font-family:var(--display);font-weight:400;line-height:1.1;margin:0}
+h1{font-size:2.4rem}
+h2{font-size:1.6rem}
+main{padding:2.5rem 0 4rem}
+.card{background:var(--tile);border:1px solid var(--line);border-radius:14px;padding:1.5rem}
+.login{max-width:24rem;margin:3rem auto;display:grid;gap:1rem}
+label{display:block;font-size:.7rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:.35rem}
+input,textarea{font:inherit;color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:10px;padding:.65rem .8rem;width:100%}
+textarea{min-height:6rem;resize:vertical}
+.btn{display:inline-flex;align-items:center;gap:.4rem;font:inherit;font-size:.8rem;font-weight:600;letter-spacing:.04em;color:var(--accent);background:transparent;border:1px solid var(--accent);border-radius:999px;padding:.55rem 1rem;cursor:pointer;text-decoration:none;white-space:nowrap}
+.btn:hover{background:var(--accent);color:var(--tile)}
+.btn.solid{background:var(--accent);color:var(--tile)}
+.btn.solid:hover{background:var(--accent-deep)}
+.btn.small{padding:.35rem .75rem;font-size:.75rem}
+.btn.ghost{color:var(--tile);border-color:rgba(251,246,234,.5)}
+.btn.ghost:hover{background:var(--tile);color:var(--cypress)}
+.btn.danger{color:var(--muted);border-color:var(--line)}
+.btn.danger:hover{background:#8C2F1B;border-color:#8C2F1B;color:#fff}
+.msg{min-height:1.4em;margin:0;color:var(--accent);font-weight:500}
+
+.stats{display:grid;grid-template-columns:repeat(6,1fr);gap:.75rem;margin:1.5rem 0 2rem}
+.stat{background:var(--tile);border:1px solid var(--line);border-radius:12px;padding:1rem}
+.stat b{display:block;font-family:var(--display);font-weight:400;font-size:2.2rem;line-height:1;font-variant-numeric:lining-nums tabular-nums}
+.stat span{font-size:.7rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.stat.yes b{color:var(--yes)} .stat.no b{color:var(--no)} .stat.wait b{color:var(--ochre)}
+@media (max-width:860px){.stats{grid-template-columns:repeat(3,1fr)}}
+
+.toolbar{display:flex;flex-wrap:wrap;gap:.75rem;align-items:center;margin-bottom:1rem}
+.toolbar input{max-width:18rem}
+.toolbar .sp{flex:1}
+.new{display:grid;grid-template-columns:1fr 1fr 8rem;gap:1rem;margin-bottom:1.5rem}
+.new .full{grid-column:1/-1}
+.new .row{grid-column:1/-1;display:flex;gap:.75rem;align-items:center;flex-wrap:wrap}
+@media (max-width:700px){.new{grid-template-columns:1fr}}
+
+.hh{display:grid;grid-template-columns:minmax(0,15rem) 1fr auto;gap:1rem 1.5rem;padding:1.25rem 1.5rem;margin-bottom:.75rem}
+.hh h3{margin:0;font-family:var(--display);font-weight:500;font-size:1.3rem;line-height:1.2}
+.hh .meta{font-size:.8rem;color:var(--muted);margin:.25rem 0 0}
+.hh code{font-family:ui-monospace,Consolas,monospace;font-size:.85rem;background:var(--paper);padding:.1rem .4rem;border-radius:6px}
+.hh ul{list-style:none;margin:0;padding:0;display:grid;gap:.35rem}
+.hh li{display:flex;flex-wrap:wrap;gap:.25rem .6rem;align-items:baseline}
+.hh .diet{font-size:.8rem;color:var(--muted)}
+.hh blockquote{margin:.6rem 0 0;padding-left:.75rem;border-left:2px solid var(--ochre);font-style:italic;color:var(--muted)}
+.hh .act{display:flex;flex-direction:column;gap:.5rem;align-items:flex-end}
+.chip{font-size:.65rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:.15rem .5rem;border-radius:999px;border:1px solid currentColor}
+.chip.yes{color:var(--yes)} .chip.no{color:var(--no)} .chip.wait{color:var(--ochre)}
+@media (max-width:760px){.hh{grid-template-columns:1fr}.hh .act{flex-direction:row;align-items:center}}
+.empty{text-align:center;color:var(--muted);padding:3rem 0}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <b>V&amp;R</b><span>Convidados</span>
+    <button class="btn small ghost" id="signout" type="button" hidden>Sair</button>
+  </div>
+</header>
+
+<main class="wrap">
+  <p class="card" id="no-config" hidden>Falta configurar o Supabase em <code>supabase-config.js</code>. Ver README.md.</p>
+
+  <form class="card login" id="login" hidden>
+    <h1>Entrar</h1>
+    <div><label for="email">Email</label><input id="email" type="email" autocomplete="username" required></div>
+    <div><label for="pw">Palavra-passe</label><input id="pw" type="password" autocomplete="current-password" required></div>
+    <button class="btn solid" type="submit">Entrar</button>
+    <p class="msg" role="status"></p>
+  </form>
+
+  <div class="card" id="denied" hidden>
+    <h2>Sem acesso</h2>
+    <p>Esta conta não está na lista de administradores (tabela <code>admins</code>).</p>
+  </div>
+
+  <div id="app" hidden>
+    <h1>Respostas</h1>
+    <div class="stats" id="stats"></div>
+
+    <div class="toolbar">
+      <input id="search" type="search" placeholder="Procurar nome ou código" aria-label="Procurar">
+      <div class="sp"></div>
+      <button class="btn" id="csv" type="button">Exportar CSV</button>
+      <button class="btn solid" id="toggle-new" type="button">Novo convite</button>
+    </div>
+
+    <form class="card new" id="new" hidden>
+      <div><label for="n-label">Nome do convite</label><input id="n-label" required placeholder="Família Silva"></div>
+      <div><label for="n-names">Convidados (um por linha)</label><textarea id="n-names" required placeholder="Ana Silva&#10;João Silva"></textarea></div>
+      <div><label for="n-plus">Acompanhantes</label><input id="n-plus" type="number" min="0" max="5" value="0"></div>
+      <div class="row">
+        <button class="btn solid" type="submit">Criar convite</button>
+        <button class="btn" type="button" id="cancel-new">Cancelar</button>
+        <p class="msg" role="status"></p>
+      </div>
+    </form>
+
+    <div id="list"></div>
+  </div>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+<script src="supabase-config.js"></script>
+<script>
+const SITE = 'https://veraricardo.pt/';
+const $ = s => document.querySelector(s);
+const el = (tag, props = {}, ...kids) => { const n = Object.assign(document.createElement(tag), props); kids.forEach(k => k != null && n.append(k)); return n; };
+const fmtDate = d => d ? new Date(d).toLocaleString('pt-PT', {dateStyle: 'short', timeStyle: 'short'}) : '';
+
+const cfg = window.SUPABASE || {};
+if (!cfg.url || !cfg.anonKey) { $('#no-config').hidden = false; throw new Error('Supabase not configured'); }
+const sb = supabase.createClient(cfg.url, cfg.anonKey);
+
+let households = [];
+
+/* ---------- Auth ---------- */
+async function route() {
+  const {data: {session}} = await sb.auth.getSession();
+  $('#signout').hidden = !session;
+  if (!session) { $('#login').hidden = false; $('#app').hidden = true; $('#denied').hidden = true; return; }
+  $('#login').hidden = true;
+  const {data: isAdmin, error} = await sb.rpc('is_admin');
+  if (error || !isAdmin) { $('#denied').hidden = false; $('#app').hidden = true; return; }
+  $('#denied').hidden = true; $('#app').hidden = false;
+  load();
+}
+
+$('#login').addEventListener('submit', async e => {
+  e.preventDefault();
+  const m = $('#login .msg'); m.textContent = 'A entrar…';
+  const {error} = await sb.auth.signInWithPassword({email: $('#email').value.trim(), password: $('#pw').value});
+  m.textContent = error ? 'Email ou palavra-passe incorretos.' : '';
+  if (!error) route();
+});
+$('#signout').addEventListener('click', async () => { await sb.auth.signOut(); route(); });
+
+/* ---------- Data ---------- */
+async function load() {
+  const {data, error} = await sb.from('households')
+    .select('id,code,label,message,responded_at,created_at,guests(id,name,is_plus_one,attending,dietary,sort)')
+    .order('label');
+  if (error) { $('#list').replaceChildren(el('p', {className: 'empty', textContent: 'Erro a carregar: ' + error.message})); return; }
+  households = data.map(h => ({...h, guests: h.guests.sort((a, b) => a.sort - b.sort || a.name.localeCompare(b.name))}));
+  render();
+}
+
+function render() {
+  const guests = households.flatMap(h => h.guests);
+  const stats = [
+    ['Convites', households.length, ''],
+    ['Responderam', households.filter(h => h.responded_at).length, ''],
+    ['Convidados', guests.length, ''],
+    ['Vêm', guests.filter(g => g.attending === true).length, 'yes'],
+    ['Não vêm', guests.filter(g => g.attending === false).length, 'no'],
+    ['Por responder', guests.filter(g => g.attending == null).length, 'wait']
+  ];
+  $('#stats').replaceChildren(...stats.map(([t, n, c]) => el('div', {className: 'stat ' + c}, el('b', {textContent: n}), el('span', {textContent: t}))));
+
+  const q = $('#search').value.trim().toLowerCase();
+  const shown = households.filter(h => !q || h.code.toLowerCase().includes(q) || h.label.toLowerCase().includes(q) || h.guests.some(g => g.name.toLowerCase().includes(q)));
+  if (!shown.length) { $('#list').replaceChildren(el('p', {className: 'empty', textContent: households.length ? 'Nada encontrado.' : 'Ainda não há convites. Criem o primeiro em “Novo convite”.'})); return; }
+  $('#list').replaceChildren(...shown.map(renderHousehold));
+}
+
+function chip(a) {
+  return a === true ? el('span', {className: 'chip yes', textContent: 'Vem'})
+       : a === false ? el('span', {className: 'chip no', textContent: 'Não vem'})
+       : el('span', {className: 'chip wait', textContent: 'Por responder'});
+}
+
+function renderHousehold(h) {
+  const link = SITE + '?c=' + encodeURIComponent(h.code) + '#rsvp';
+  const copy = el('button', {className: 'btn small', type: 'button', textContent: 'Copiar link'});
+  copy.addEventListener('click', async () => {
+    try { await navigator.clipboard.writeText(link); copy.textContent = 'Copiado'; } catch { prompt('Link do convite:', link); }
+    setTimeout(() => copy.textContent = 'Copiar link', 1500);
+  });
+  const del = el('button', {className: 'btn small danger', type: 'button', textContent: 'Apagar'});
+  del.addEventListener('click', async () => {
+    if (!confirm(`Apagar o convite "${h.label}"? As respostas deste convite também são apagadas.`)) return;
+    const {error} = await sb.from('households').delete().eq('id', h.id);
+    if (error) alert('Erro: ' + error.message); else load();
+  });
+
+  return el('article', {className: 'card hh'},
+    el('div', {},
+      el('h3', {textContent: h.label}),
+      el('p', {className: 'meta'}, 'Código ', el('code', {textContent: h.code})),
+      el('p', {className: 'meta', textContent: h.responded_at ? 'Respondeu ' + fmtDate(h.responded_at) : 'Ainda não respondeu'})),
+    el('div', {},
+      el('ul', {}, ...h.guests.map(g => el('li', {},
+        el('span', {textContent: g.name + (g.is_plus_one ? ' (acomp.)' : '')}), chip(g.attending),
+        g.dietary ? el('span', {className: 'diet', textContent: '· ' + g.dietary}) : null))),
+      h.message ? el('blockquote', {textContent: h.message}) : null),
+    el('div', {className: 'act'}, copy, del));
+}
+
+$('#search').addEventListener('input', render);
+
+/* ---------- New invite ---------- */
+const ALPHABET = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789'; // no 0/O/1/I
+const newCode = () => Array.from(crypto.getRandomValues(new Uint32Array(8)), n => ALPHABET[n % ALPHABET.length]).join('');
+
+$('#toggle-new').addEventListener('click', () => { $('#new').hidden = false; $('#n-label').focus(); });
+$('#cancel-new').addEventListener('click', () => { $('#new').hidden = true; $('#new').reset(); });
+
+$('#new').addEventListener('submit', async e => {
+  e.preventDefault();
+  const m = $('#new .msg');
+  const label = $('#n-label').value.trim();
+  const names = $('#n-names').value.split('\n').map(s => s.trim()).filter(Boolean);
+  const plus = Math.max(0, Math.min(5, parseInt($('#n-plus').value, 10) || 0));
+  if (!label || !names.length) { m.textContent = 'Preencham o nome do convite e pelo menos um convidado.'; return; }
+  m.textContent = 'A criar…';
+
+  let hh, error;
+  for (let i = 0; i < 5; i++) {
+    ({data: hh, error} = await sb.from('households').insert({code: newCode(), label}).select().single());
+    if (!error || error.code !== '23505') break; // retry only on duplicate code
+  }
+  if (error) { m.textContent = 'Erro: ' + error.message; return; }
+
+  const rows = [
+    ...names.map((name, i) => ({household_id: hh.id, name, sort: i})),
+    ...Array.from({length: plus}, (_, i) => ({household_id: hh.id, name: 'Acompanhante', is_plus_one: true, sort: names.length + i}))
+  ];
+  ({error} = await sb.from('guests').insert(rows));
+  if (error) { m.textContent = 'Convite criado, mas houve erro nos convidados: ' + error.message; load(); return; }
+
+  m.textContent = `Criado: ${label} · código ${hh.code}`;
+  $('#new').reset();
+  load();
+});
+
+/* ---------- CSV (Excel PT: separador ;) ---------- */
+$('#csv').addEventListener('click', () => {
+  // Guest-entered text: neutralise spreadsheet formulas (=, +, -, @) before quoting.
+  const esc = v => { let s = String(v ?? ''); if (/^[=+\-@\t\r]/.test(s)) s = "'" + s; return /[;"\n\r]/.test(s) ? '"' + s.replace(/"/g, '""') + '"' : s; };
+  const head = ['Convite', 'Código', 'Nome', 'Acompanhante', 'Presença', 'Restrições alimentares', 'Mensagem', 'Respondido em'];
+  const rows = households.flatMap(h => h.guests.map(g => [
+    h.label, h.code, g.name, g.is_plus_one ? 'Sim' : '',
+    g.attending === true ? 'Vem' : g.attending === false ? 'Não vem' : 'Por responder',
+    g.dietary, h.message, fmtDate(h.responded_at)
+  ]));
+  const csv = '﻿' + [head, ...rows].map(r => r.map(esc).join(';')).join('\r\n');
+  const a = el('a', {href: URL.createObjectURL(new Blob([csv], {type: 'text/csv;charset=utf-8'})), download: 'convidados-vera-ricardo.csv'});
+  a.click(); setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+});
+
+sb.auth.onAuthStateChange((ev) => { if (ev === 'SIGNED_OUT') route(); });
+route();
+</script>
+</body>
+</html>
