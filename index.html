@@ -44,6 +44,8 @@ body{background:var(--ink);color:var(--tile);font-family:var(--sans);-webkit-fon
 .names .amp{font-style:italic;color:var(--wheat);padding:0 .12em}
 
 .bottom{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:clamp(1.75rem,4.5vh,2.75rem);padding:0 1rem calc(clamp(2rem,6vh,3.5rem) + env(safe-area-inset-bottom))}
+.when{display:flex;flex-direction:column;align-items:center;gap:1rem}
+.eyebrow.date{color:var(--tile);text-shadow:0 1px 12px rgba(0,0,0,.3)}
 .countdown{display:flex;justify-content:center;gap:.75rem}
 .countdown div{width:5.5rem;padding:.9rem .25rem;border:1px solid rgba(251,246,234,.4);border-radius:12px;background:rgba(43,42,33,.18);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
 .countdown b{display:block;font-family:var(--display);font-weight:400;font-size:2.4rem;line-height:1;font-variant-numeric:lining-nums tabular-nums}
@@ -95,11 +97,14 @@ body{background:var(--ink);color:var(--tile);font-family:var(--sans);-webkit-fon
   </div>
 
   <div class="bottom">
-    <div class="countdown fade d3" id="countdown" hidden aria-label="Contagem decrescente para o casamento">
-      <div><b data-cd="d">0</b><span>dias</span></div>
-      <div><b data-cd="h">0</b><span>horas</span></div>
-      <div><b data-cd="m">0</b><span>min</span></div>
-      <div><b data-cd="s">0</b><span>seg</span></div>
+    <div class="when">
+      <p class="eyebrow date fade d3">1 de Maio de 2027</p>
+      <div class="countdown fade d3" id="countdown" hidden aria-label="Contagem decrescente para o casamento">
+        <div><b data-cd="d">0</b><span>dias</span></div>
+        <div><b data-cd="h">0</b><span>horas</span></div>
+        <div><b data-cd="m">0</b><span>min</span></div>
+        <div><b data-cd="s">0</b><span>seg</span></div>
+      </div>
     </div>
     <a class="login fade d4" id="login" href="entrar.html">Entrar</a>
   </div>
