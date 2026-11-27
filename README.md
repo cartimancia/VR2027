@@ -4,15 +4,16 @@ Wedding site for Vera & Ricardo, 1 May 2027. Static site on GitHub Pages; RSVPs 
 
 | File | What |
 |---|---|
-| `index.html` | Public site. Date, IBAN etc. in the `CONFIG` block at the bottom. Text still to fill has `class="tbd"` (dashed underline). |
+| `index.html` | Front page: video, names, countdown, "Entrar" link. Wedding date in `WEDDING` at the bottom. |
+| `entrar.html` | Guest sign-in (invite code + first name) and RSVP. |
 | `admin.html` | Private dashboard: RSVPs, headcount, create invites, export CSV. |
 | `supabase-config.js` | Supabase URL + public key, shared by both pages. |
 | `supabase/schema.sql` | Tables, security policies and guest functions. |
-| `media/hero.mp4` | Hero video (optional `media/hero.jpg` poster). Without it, the drawn landscape shows. |
+| `media/hero.mp4` | Hero video (H.264, ~7 MB). `media/hero.jpg` is the poster, sign-in background and share preview. |
 
 ## How sign-in works
 
-- **Guests** enter the code from their invitation + their first name. They see everyone in their household, answer yes/no per person, add dietary needs and a message, and can come back to change it. Invite links `https://veraricardo.pt/?c=CODE#rsvp` pre-fill the code (good for a QR code on the invitation).
+- **Guests** enter the code from their invitation + their first name. They see everyone in their household, answer yes/no per person, add dietary needs and a message, and can come back to change it. Invite links `https://veraricardo.pt/entrar.html?c=CODE` pre-fill the code (good for a QR code on the invitation).
 - **Admins** (you and Vera) sign in on `/admin.html` with email + password.
 - Guests never get table access. Two database functions check code + name and only touch that household. Admin access is limited to emails in the `admins` table.
 

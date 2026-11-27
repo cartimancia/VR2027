@@ -197,7 +197,7 @@ function chip(a) {
 }
 
 function renderHousehold(h) {
-  const link = SITE + '?c=' + encodeURIComponent(h.code) + '#rsvp';
+  const link = SITE + 'entrar.html?c=' + encodeURIComponent(h.code);
   const copy = el('button', {className: 'btn small', type: 'button', textContent: 'Copiar link'});
   copy.addEventListener('click', async () => {
     try { await navigator.clipboard.writeText(link); copy.textContent = 'Copiado'; } catch { prompt('Link do convite:', link); }

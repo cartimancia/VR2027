@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>Entrar · Vera &amp; Ricardo</title>
+<meta name="theme-color" content="#2B2A21">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%233B4530'/%3E%3Ctext x='32' y='43' text-anchor='middle' font-family='Georgia,serif' font-style='italic' font-size='30' fill='%23FBF6EA'%3EV%26R%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..600;1,6..96,400..600&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  color-scheme:dark;
+  --tile:#FBF6EA;
+  --wheat:#EAD7A4;
+  --ink:#2B2A21;
+  --cypress:#3B4530;
+  --soft:#E6DDC6;
+  --display:"Bodoni Moda",Didot,"Bodoni 72",Georgia,serif;
+  --sans:"Manrope",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --ease:cubic-bezier(.2,.7,.2,1);
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html,body{margin:0}
+body{min-height:100vh;min-height:100svh;color:var(--tile);font-family:var(--sans);line-height:1.6;-webkit-font-smoothing:antialiased;
+  background:linear-gradient(180deg,rgba(43,42,33,.55),rgba(43,42,33,.78)),#5B4A2E url("media/hero.jpg") center/cover no-repeat fixed}
+:focus-visible{outline:1px solid var(--wheat);outline-offset:4px}
+
+.page{min-height:100vh;min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:4.5rem 1.25rem calc(3rem + env(safe-area-inset-bottom))}
+.back{position:fixed;top:1.25rem;left:1.25rem;z-index:2;color:var(--tile);text-decoration:none;font-family:var(--display);font-style:italic;font-size:1.35rem;opacity:.85;transition:opacity .4s var(--ease)}
+.back:hover{opacity:1}
+
+.panel{width:100%;max-width:34rem;padding:clamp(1.75rem,5vw,2.75rem);border:1px solid rgba(251,246,234,.22);border-radius:20px;background:rgba(43,42,33,.42);backdrop-filter:blur(16px) saturate(1.1);-webkit-backdrop-filter:blur(16px) saturate(1.1);box-shadow:0 30px 80px -30px rgba(0,0,0,.5)}
+.eyebrow{margin:0;font-size:.7rem;font-weight:600;letter-spacing:.28em;text-transform:uppercase;color:var(--wheat)}
+h1{margin:.6rem 0 .5rem;font-family:var(--display);font-weight:400;font-size:clamp(2.2rem,7vw,3rem);line-height:1.05}
+.lead{margin:0 0 1.75rem;color:var(--soft)}
+.closed{margin:0;font-family:var(--display);font-size:1.35rem}
+
+form{display:grid;gap:1.1rem}
+.field{display:flex;flex-direction:column;gap:.4rem}
+label{font-size:.7rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:#DCD0B2}
+input[type=text],textarea{font:inherit;color:var(--ink);background:rgba(251,246,234,.95);border:1px solid transparent;border-radius:10px;padding:.8rem .95rem;width:100%;transition:box-shadow .3s var(--ease)}
+input[type=text]:focus,textarea:focus{outline:none;box-shadow:0 0 0 2px var(--wheat)}
+textarea{min-height:6rem;resize:vertical}
+#f-code{text-transform:uppercase;letter-spacing:.18em}
+
+.btn{justify-self:start;font:inherit;font-size:.78rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--cypress);background:var(--tile);border:1px solid var(--tile);border-radius:999px;padding:.8rem 1.6rem;cursor:pointer;transition:background .4s var(--ease),border-color .4s var(--ease),transform .4s var(--ease)}
+.btn:hover{background:var(--wheat);border-color:var(--wheat)}
+.btn:active{transform:scale(.98)}
+.btn:disabled{opacity:.6;cursor:default}
+.status{margin:0;min-height:1.5em;color:var(--wheat);font-weight:500;font-size:.92rem}
+
+.hello{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:.25rem 1rem;margin-bottom:.25rem}
+.hello p{margin:0;font-family:var(--display);font-size:1.6rem;line-height:1.2}
+.hello strong{font-weight:500;color:var(--wheat)}
+.linkish{font:inherit;font-size:.82rem;color:var(--soft);background:none;border:0;padding:0;text-decoration:underline;text-underline-offset:.2em;cursor:pointer}
+
+.guest-list{display:grid;gap:.85rem}
+.guest{margin:0;border:1px solid rgba(251,246,234,.2);border-radius:14px;padding:1.1rem 1.1rem 1.2rem;background:rgba(251,246,234,.04);display:grid;gap:.9rem;min-width:0}
+.guest h3{margin:0;font-family:var(--display);font-size:1.35rem;font-weight:500;line-height:1.2}
+.choice{display:flex;flex-wrap:wrap;gap:.6rem}
+.choice label{display:flex;align-items:center;gap:.55rem;cursor:pointer;font-size:.92rem;font-weight:500;letter-spacing:0;text-transform:none;color:var(--tile);border:1px solid rgba(251,246,234,.4);border-radius:999px;padding:.55rem 1.1rem;transition:background .35s var(--ease),color .35s var(--ease),border-color .35s var(--ease)}
+.choice input{accent-color:var(--wheat);margin:0}
+.choice label:has(input:checked){background:var(--tile);color:var(--cypress);border-color:var(--tile)}
+.choice label:has(input:focus-visible){outline:1px solid var(--wheat);outline-offset:3px}
+
+.fade{opacity:0;transform:translateY(12px);animation:rise 1.2s var(--ease) forwards}
+.d1{animation-delay:.1s}.d2{animation-delay:.35s}
+@keyframes rise{to{opacity:1;transform:none}}
+.swap{animation:rise .8s var(--ease)}
+@media (prefers-reduced-motion:reduce){.fade,.swap{animation:none;opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<a class="back fade d1" href="./" aria-label="Voltar à página inicial">V&amp;R</a>
+
+<main class="page">
+  <section class="panel fade d2" aria-labelledby="title">
+    <p class="eyebrow">Convidados</p>
+    <h1 id="title">Entrar</h1>
+
+    <p class="closed" id="rsvp-closed" hidden>As confirmações abrem em breve.</p>
+
+    <form id="login-form" novalidate hidden>
+      <p class="lead" style="margin-bottom:.25rem">Usem o código que vem no vosso convite.</p>
+      <div class="field">
+        <label for="f-code">Código do convite</label>
+        <input id="f-code" name="code" type="text" autocomplete="off" autocapitalize="characters" spellcheck="false" required>
+      </div>
+      <div class="field">
+        <label for="f-first">O vosso primeiro nome</label>
+        <input id="f-first" name="first" type="text" autocomplete="given-name" required>
+      </div>
+      <button class="btn" type="submit">Entrar</button>
+      <p class="status" role="status" aria-live="polite"></p>
+    </form>
+
+    <form id="rsvp-form" novalidate hidden>
+      <div class="hello">
+        <p>Olá, <strong id="hh-label"></strong></p>
+        <button class="linkish" type="button" id="logout">Não são vocês? Sair</button>
+      </div>
+      <div id="guest-list" class="guest-list"></div>
+      <div class="field">
+        <label for="f-msg">Mensagem para os noivos</label>
+        <textarea id="f-msg" name="msg" maxlength="2000"></textarea>
+      </div>
+      <button class="btn" type="submit">Guardar resposta</button>
+      <p class="status" role="status" aria-live="polite"></p>
+    </form>
+  </section>
+</main>
+
+<script src="supabase-config.js"></script>
+<script>
+/* Guests sign in with invite code + first name (Supabase RPC, see supabase/schema.sql) */
+(() => {
+  const SB = window.SUPABASE || {};
+  const title = document.getElementById('title');
+  const loginForm = document.getElementById('login-form');
+  const rsvpForm = document.getElementById('rsvp-form');
+  const list = document.getElementById('guest-list');
+  const loginStatus = loginForm.querySelector('.status');
+  const rsvpStatus = rsvpForm.querySelector('.status');
+  const KEY = 'vr-rsvp-login';
+  let session = null; // {code, name}
+
+  if (!SB.url || !SB.anonKey) { document.getElementById('rsvp-closed').hidden = false; return; }
+
+  const rpc = async (fn, body) => {
+    const r = await fetch(`${SB.url}/rest/v1/rpc/${fn}`, {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json', apikey: SB.anonKey},
+      body: JSON.stringify(body)
+    });
+    if (!r.ok) throw new Error('rpc ' + r.status);
+    return r.json();
+  };
+  const store = {
+    get() { try { return JSON.parse(localStorage.getItem(KEY)); } catch { return null; } },
+    set(v) { try { localStorage.setItem(KEY, JSON.stringify(v)); } catch {} },
+    clear() { try { localStorage.removeItem(KEY); } catch {} }
+  };
+  const busy = (form, on) => form.querySelectorAll('button,input,textarea').forEach(x => x.disabled = on);
+  const el = (tag, props = {}, ...kids) => {
+    const n = Object.assign(document.createElement(tag), props);
+    kids.forEach(k => n.append(k));
+    return n;
+  };
+  const show = form => { form.hidden = false; form.classList.remove('swap'); void form.offsetWidth; form.classList.add('swap'); };
+
+  function renderGuest(g) {
+    const fs = el('fieldset', {className: 'guest'});
+    fs.dataset.id = g.id;
+    fs.setAttribute('aria-labelledby', 'h-' + g.id);
+    if (g.is_plus_one) {
+      const id = 'n-' + g.id;
+      fs.append(el('h3', {id: 'h-' + g.id, textContent: 'Acompanhante'}),
+        el('div', {className: 'field'},
+          el('label', {htmlFor: id, textContent: 'Nome do acompanhante'}),
+          el('input', {id, type: 'text', name: 'pname', maxLength: 120, value: g.name === 'Acompanhante' ? '' : g.name})));
+    } else {
+      fs.append(el('h3', {id: 'h-' + g.id, textContent: g.name}));
+    }
+    const choice = el('div', {className: 'choice'});
+    [['1', 'Vou'], ['0', 'Não vou']].forEach(([v, t]) => {
+      const input = el('input', {type: 'radio', name: 'att-' + g.id, value: v});
+      if (g.attending === (v === '1')) input.checked = true;
+      choice.append(el('label', {}, input, ' ' + t));
+    });
+    const dietId = 'd-' + g.id;
+    const diet = el('div', {className: 'field'},
+      el('label', {htmlFor: dietId, textContent: 'Restrições alimentares'}),
+      el('input', {id: dietId, type: 'text', name: 'diet', maxLength: 300, placeholder: 'Vegetariano, alergias, etc.', value: g.dietary || ''}));
+    diet.hidden = g.attending !== true;
+    choice.addEventListener('change', () => { diet.hidden = choice.querySelector('input:checked')?.value !== '1'; });
+    fs.append(choice, diet);
+    return fs;
+  }
+
+  function showHousehold(data) {
+    document.getElementById('hh-label').textContent = data.label;
+    list.replaceChildren(...data.guests.map(renderGuest));
+    rsvpForm.msg.value = data.message || '';
+    rsvpStatus.textContent = data.responded_at ? 'Já recebemos a vossa resposta. Podem alterá-la sempre que quiserem.' : '';
+    title.textContent = 'Confirmar presença';
+    loginForm.hidden = true;
+    if (rsvpForm.hidden) show(rsvpForm);
+  }
+
+  async function login(code, name, quiet) {
+    busy(loginForm, true);
+    loginStatus.textContent = quiet ? '' : 'A entrar…';
+    try {
+      const data = await rpc('guest_login', {p_code: code, p_name: name});
+      if (!data) {
+        store.clear();
+        loginStatus.textContent = quiet ? '' : 'Não encontrámos esse convite. Confirmem o código e o primeiro nome.';
+        return;
+      }
+      session = {code, name};
+      store.set(session);
+      showHousehold(data);
+    } catch {
+      loginStatus.textContent = 'Não foi possível ligar. Tentem de novo daqui a pouco.';
+    } finally { busy(loginForm, false); }
+  }
+
+  loginForm.addEventListener('submit', e => {
+    e.preventDefault();
+    const code = loginForm.code.value.trim(), name = loginForm.first.value.trim();
+    if (!code || !name) { loginStatus.textContent = 'Preencham o código e o primeiro nome.'; return; }
+    login(code, name);
+  });
+
+  rsvpForm.addEventListener('submit', async e => {
+    e.preventDefault();
+    const guests = [...list.querySelectorAll('.guest')].map(fs => {
+      const v = fs.querySelector('input[type=radio]:checked')?.value;
+      return {
+        id: fs.dataset.id,
+        attending: v === undefined ? null : v === '1',
+        dietary: fs.querySelector('[name=diet]').value,
+        name: fs.querySelector('[name=pname]')?.value || ''
+      };
+    });
+    if (guests.some(g => g.attending === null)) { rsvpStatus.textContent = 'Indiquem se vão ou não, para cada pessoa.'; return; }
+    busy(rsvpForm, true);
+    rsvpStatus.textContent = 'A guardar…';
+    try {
+      const data = await rpc('guest_submit', {p_code: session.code, p_name: session.name, p_guests: guests, p_message: rsvpForm.msg.value});
+      showHousehold(data);
+      rsvpStatus.textContent = guests.some(g => g.attending)
+        ? 'Obrigado! Está guardado. Até dia 1 de maio!'
+        : 'Obrigado por nos avisarem. Vamos sentir a vossa falta.';
+    } catch {
+      rsvpStatus.textContent = 'Não foi possível guardar. Tentem de novo daqui a pouco.';
+    } finally { busy(rsvpForm, false); }
+  });
+
+  document.getElementById('logout').addEventListener('click', () => {
+    session = null; store.clear();
+    rsvpForm.hidden = true;
+    title.textContent = 'Entrar';
+    loginForm.reset(); loginStatus.textContent = '';
+    show(loginForm);
+  });
+
+  // Invite link: https://veraricardo.pt/entrar.html?c=CODIGO
+  const urlCode = new URLSearchParams(location.search).get('c');
+  if (urlCode) loginForm.code.value = urlCode;
+  const saved = store.get();
+  if (saved?.code && saved?.name && (!urlCode || urlCode === saved.code)) {
+    login(saved.code, saved.name, true).then(() => { if (!session) loginForm.hidden = false; });
+  } else {
+    loginForm.hidden = false;
+  }
+})();
+</script>
+</body>
+</html>
